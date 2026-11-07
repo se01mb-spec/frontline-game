@@ -17,7 +17,7 @@ The player is an Iranian soldier caught in the surprise attack on the first day 
 
 ## Current status
 
-The repository contains the initial design documents and a minimal Godot 4 project scaffold. The first test scene includes a placeholder soldier, keyboard movement, a touch D-pad, and a safe-zone objective marker. It has **not yet been run or exported**; the next step is to open it in Godot, resolve any parser/runtime issues, and test on Android.
+The repository contains the initial design documents and a minimal Godot 4 project scaffold. The first test scene includes a placeholder soldier, keyboard movement, a touch D-pad, a camera that follows the player, physical obstacle and map-boundary collisions, and a safe-zone objective marker. A free GitHub Actions workflow now imports the project and runs a short headless smoke test on pushes and pull requests. The workflow has been added but has **not yet completed a run**, and no Android APK has been exported or device-tested.
 
 ## Project documents
 
