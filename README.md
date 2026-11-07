@@ -17,7 +17,7 @@ The player is an Iranian soldier caught in the surprise attack on the first day 
 
 ## Current status
 
-The GitHub repository has just been initialized. The first milestone is to establish the game design and technical foundation before implementing gameplay.
+The repository contains the initial design documents and a minimal Godot 4 project scaffold. The first test scene includes a placeholder soldier, keyboard movement, a touch D-pad, and a safe-zone objective marker. It has **not yet been run or exported**; the next step is to open it in Godot, resolve any parser/runtime issues, and test on Android.
 
 ## Project documents
 
@@ -25,9 +25,9 @@ The GitHub repository has just been initialized. The first milestone is to estab
 - [Development roadmap](docs/ROADMAP.md)
 - [Technical decisions](docs/TECHNICAL_DECISIONS.md)
 
-## Planned toolchain
+## Toolchain direction
 
-Godot 4.x (2D) is the leading candidate because it is free, open source, lightweight, and exports to Android. The exact version and Android export setup will be pinned after the first local build test.
+Godot 4.x (2D) is the selected prototype direction because it is free, open source, lightweight, and supports Android export. The exact engine version and Android export setup will be pinned after the first local build test.
 
 ## Contributing / workflow
 
