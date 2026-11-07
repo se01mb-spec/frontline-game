@@ -20,7 +20,7 @@ func _ready() -> void:
 	health_changed.emit(health, max_health)
 	queue_redraw()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_dead:
 		velocity = Vector2.ZERO
 		return
@@ -68,7 +68,7 @@ func _draw() -> void:
 	draw_set_transform(Vector2(0.0, bob), rotation_angle, Vector2.ONE)
 
 	# Soft ground shadow.
-	draw_ellipse(Vector2(0, 14), Vector2(18, 8), Color(0.02, 0.03, 0.025, 0.38))
+	draw_circle(Vector2(0, 14), 13.0, Color(0.02, 0.03, 0.025, 0.38))
 
 	# Alternating boots and legs create a readable walking/running cycle.
 	draw_line(Vector2(-6, 10), Vector2(-7 - stride, 23), Color("202923"), 6.0, true)
