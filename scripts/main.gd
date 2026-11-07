@@ -2,6 +2,7 @@ extends Node2D
 
 const PLAYER_SCENE: PackedScene = preload("res://scenes/player.tscn")
 const ENEMY_SCENE: PackedScene = preload("res://scenes/enemy.tscn")
+const JOYSTICK_SCRIPT = preload("res://scripts/virtual_joystick.gd")
 const MAP_SIZE := Vector2(1920.0, 1080.0)
 const OBJECTIVE_POSITION := Vector2(1740.0, 540.0)
 
@@ -126,23 +127,16 @@ func _create_touch_controls() -> void:
 	var layer := CanvasLayer.new()
 	layer.name = "TouchControls"
 	add_child(layer)
-	_create_direction_button(layer, "◀", "move_left", Vector2(28, -112))
-	_create_direction_button(layer, "▲", "move_up", Vector2(118, -202))
-	_create_direction_button(layer, "▼", "move_down", Vector2(118, -112))
-	_create_direction_button(layer, "▶", "move_right", Vector2(208, -112))
 
-func _create_direction_button(parent: CanvasLayer, caption: String, action_name: String, button_position: Vector2) -> void:
-	var button := Button.new()
-	button.text = caption
-	button.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-	button.custom_minimum_size = Vector2(78, 78)
-	button.size = Vector2(78, 78)
-	button.position = button_position
-	button.add_theme_font_size_override("font_size", 30)
-	button.modulate = Color(1, 1, 1, 0.82)
-	button.button_down.connect(func(): Input.action_press(action_name))
-	button.button_up.connect(func(): Input.action_release(action_name))
-	parent.add_child(button)
+	var joystick := Control.new()
+	joystick.name = "MovementJoystick"
+	joystick.set_script(JOYSTICK_SCRIPT)
+	joystick.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	joystick.position = Vector2(38.0, -222.0)
+	joystick.custom_minimum_size = Vector2(190.0, 190.0)
+	joystick.size = Vector2(190.0, 190.0)
+	joystick.direction_changed.connect(player.set_touch_direction)
+	layer.add_child(joystick)
 
 func _process(_delta: float) -> void:
 	if player == null:
