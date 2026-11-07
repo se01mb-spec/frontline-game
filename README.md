@@ -17,7 +17,11 @@ The player is an Iranian soldier caught in the surprise attack on the first day 
 
 ## Current status
 
-The repository contains the initial design documents and a minimal Godot 4 project scaffold. The first mission prototype now includes a placeholder soldier, keyboard movement plus a continuous drag virtual joystick, camera follow, physical cover and map-boundary collisions, player health, three pursuing hostile units, mission success/failure states, and restart. The Godot headless import and smoke-test workflow has passed on the current gameplay prototype. An Android export preset and a free cloud APK-build workflow have also been added; the first APK build is currently being validated. No APK is considered ready until that workflow succeeds.
+The first mission prototype includes keyboard movement plus a continuous drag virtual joystick, camera follow, physical cover and map-boundary collisions, player health, three pursuing hostile units, mission success/failure states, and restart.
+
+The player now uses a transparent cutout extracted from the user-supplied M. Reza character design sheet. The source sheet contains character turnarounds and equipment references, but not sequential walk-cycle frames; this first integration therefore uses the front hero pose with directional rotation and a subtle movement bob. Proper front/side/back directional animation remains a planned art task.
+
+Godot headless validation and Android export run through free GitHub Actions workflows. A successful cloud build is not a substitute for testing on a physical Android device.
 
 ## Project documents
 
@@ -27,7 +31,7 @@ The repository contains the initial design documents and a minimal Godot 4 proje
 
 ## Toolchain direction
 
-Godot 4.x (2D) is the selected prototype direction because it is free, open source, lightweight, and supports Android export. The exact engine version and Android export setup will be pinned after the first local build test.
+Godot 4.3 (2D) is the pinned prototype direction because it is free, open source, lightweight, and supports Android export.
 
 ## Contributing / workflow
 
