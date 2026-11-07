@@ -18,6 +18,7 @@ func _ready() -> void:
 	objective_label.add_theme_color_override("font_color", Color("f3e8c5"))
 	objective_label.text = "OBJECTIVE: Reach the safe zone"
 	add_child(objective_label)
+	_create_touch_controls()
 	queue_redraw()
 
 func _setup_test_input() -> void:
@@ -37,6 +38,28 @@ func _add_key_action(action_name: String, key_code: Key) -> void:
 	event.physical_keycode = key_code
 	if not InputMap.action_has_event(action_name, event):
 		InputMap.action_add_event(action_name, event)
+
+func _create_touch_controls() -> void:
+	var layer := CanvasLayer.new()
+	layer.name = "TouchControls"
+	add_child(layer)
+	_create_direction_button(layer, "◀", "move_left", Vector2(28, -112))
+	_create_direction_button(layer, "▲", "move_up", Vector2(118, -202))
+	_create_direction_button(layer, "▼", "move_down", Vector2(118, -112))
+	_create_direction_button(layer, "▶", "move_right", Vector2(208, -112))
+
+func _create_direction_button(parent: CanvasLayer, caption: String, action_name: String, button_position: Vector2) -> void:
+	var button := Button.new()
+	button.text = caption
+	button.custom_minimum_size = Vector2(78, 78)
+	button.size = Vector2(78, 78)
+	button.position = button_position
+	button.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	button.add_theme_font_size_override("font_size", 30)
+	button.modulate = Color(1.0, 1.0, 1.0, 0.82)
+	button.button_down.connect(func(): Input.action_press(action_name))
+	button.button_up.connect(func(): Input.action_release(action_name))
+	parent.add_child(button)
 
 func _process(_delta: float) -> void:
 	if player == null or objective_reached:
