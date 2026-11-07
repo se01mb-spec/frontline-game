@@ -1,0 +1,20 @@
+# Godot
+.godot/
+.import/
+.export/
+export.cfg
+export_presets.cfg
+
+# Build outputs
+build/
+dist/
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
