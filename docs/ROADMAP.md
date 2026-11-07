@@ -14,8 +14,9 @@ The project is developed in small vertical slices. Each milestone should produce
 - [x] Add player movement and collision
 - [x] Add mobile touch controls (basic D-pad)
 - [x] Add basic HUD and objective marker
-- [ ] Add camera follow
+- [x] Add camera follow (implementation added; runtime verification pending)
 - [ ] Test frame rate and controls on Android
+- [x] Add automated Godot import and smoke-test workflow (first CI run pending)
 
 **Exit criteria:** a player can move around a small map on a phone without editor or keyboard input.
 
