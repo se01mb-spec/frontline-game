@@ -7,20 +7,21 @@ The project is developed in small vertical slices. Each milestone should produce
 - [x] Record the game premise and campaign outline
 - [x] Define the first playable prototype
 - [ ] Confirm engine version and local toolchain
-- [ ] Add project folders and starter project
+- [x] Add project folders and starter project
 
 ## Milestone 1 — Movement prototype
-- [ ] Create a small test scene
-- [ ] Add player movement and collision
-- [ ] Add mobile touch controls
-- [ ] Add camera follow and basic HUD
+- [x] Create a small test scene
+- [x] Add player movement and collision
+- [x] Add mobile touch controls (basic D-pad)
+- [x] Add basic HUD and objective marker
+- [ ] Add camera follow
 - [ ] Test frame rate and controls on Android
 
 **Exit criteria:** a player can move around a small map on a phone without editor or keyboard input.
 
 ## Milestone 2 — Interaction and objective
 - [ ] Add interactable objects
-- [ ] Add objective marker and completion state
+- [x] Add objective marker and completion state
 - [ ] Add pause, restart, and a simple local save
 - [ ] Build and test an APK
 
