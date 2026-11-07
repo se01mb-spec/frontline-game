@@ -17,7 +17,7 @@ The player is an Iranian soldier caught in the surprise attack on the first day 
 
 ## Current status
 
-The repository contains the initial design documents and a minimal Godot 4 project scaffold. The first mission prototype now includes a placeholder soldier, keyboard/touch movement, camera follow, physical cover and map-boundary collisions, player health, three pursuing hostile units, mission success/failure states, and restart. The Godot headless import and smoke-test workflow has passed on the current gameplay prototype. An Android export preset and a free cloud APK-build workflow have also been added; the first APK build is currently being validated. No APK is considered ready until that workflow succeeds.
+The repository contains the initial design documents and a minimal Godot 4 project scaffold. The first mission prototype now includes a placeholder soldier, keyboard movement plus a continuous drag virtual joystick, camera follow, physical cover and map-boundary collisions, player health, three pursuing hostile units, mission success/failure states, and restart. The Godot headless import and smoke-test workflow has passed on the current gameplay prototype. An Android export preset and a free cloud APK-build workflow have also been added; the first APK build is currently being validated. No APK is considered ready until that workflow succeeds.
 
 ## Project documents
 
