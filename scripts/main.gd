@@ -171,15 +171,41 @@ func _restart_mission() -> void:
 
 func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, MAP_SIZE), Color("343d36"), true)
+
+	# Subtle terrain grain and a broken evacuation road.
 	for x in range(0, int(MAP_SIZE.x) + 1, 80):
-		draw_line(Vector2(x, 0), Vector2(x, MAP_SIZE.y), Color(0.75, 0.78, 0.7, 0.07), 1)
+		draw_line(Vector2(x, 0), Vector2(x, MAP_SIZE.y), Color(0.75, 0.78, 0.7, 0.045), 1)
 	for y in range(0, int(MAP_SIZE.y) + 1, 80):
-		draw_line(Vector2(0, y), Vector2(MAP_SIZE.x, y), Color(0.75, 0.78, 0.7, 0.07), 1)
+		draw_line(Vector2(0, y), Vector2(MAP_SIZE.x, y), Color(0.75, 0.78, 0.7, 0.045), 1)
+	draw_rect(Rect2(0, 470, MAP_SIZE.x, 150), Color("45483f"), true)
+	draw_rect(Rect2(0, 478, MAP_SIZE.x, 5), Color("77766a"), true)
+	draw_rect(Rect2(0, 607, MAP_SIZE.x, 5), Color("77766a"), true)
+	for x in range(30, int(MAP_SIZE.x), 150):
+		draw_rect(Rect2(x, 543, 72, 5), Color("b0a58a"), true)
+
+	# Dust, impact craters and scattered debris are decorative terrain details.
+	draw_circle(Vector2(300, 170), 76, Color(0.18, 0.20, 0.17, 0.30))
+	draw_circle(Vector2(300, 170), 48, Color(0.12, 0.14, 0.12, 0.48))
+	draw_arc(Vector2(300, 170), 48, 0, TAU, 40, Color("77796b"), 3)
+	draw_circle(Vector2(950, 390), 54, Color(0.16, 0.18, 0.15, 0.34))
+	draw_arc(Vector2(950, 390), 36, 0, TAU, 40, Color("77796b"), 3)
+	draw_circle(Vector2(1390, 900), 68, Color(0.16, 0.18, 0.15, 0.34))
+	draw_arc(Vector2(1390, 900), 46, 0, TAU, 40, Color("77796b"), 3)
+	for debris in [Vector2(650, 380), Vector2(690, 395), Vector2(1110, 720), Vector2(1320, 220), Vector2(1620, 690)]:
+		draw_colored_polygon(PackedVector2Array([debris, debris + Vector2(18, -7), debris + Vector2(31, 9), debris + Vector2(9, 17)]), Color("777466"))
+
 	# Visual cover is paired with matching StaticBody2D collision shapes.
 	draw_rect(Rect2(430, 260, 150, 70), Color("55594d"), true)
 	draw_rect(Rect2(820, 650, 210, 64), Color("55594d"), true)
 	draw_rect(Rect2(1180, 300, 90, 190), Color("55594d"), true)
 	draw_rect(Rect2(1450, 760, 180, 70), Color("55594d"), true)
+	draw_rect(Rect2(438, 268, 134, 8), Color("77796b"), true)
+	draw_rect(Rect2(828, 658, 194, 8), Color("77796b"), true)
+	draw_rect(Rect2(1188, 308, 8, 174), Color("77796b"), true)
+	draw_rect(Rect2(1458, 768, 164, 8), Color("77796b"), true)
+
+	# Safe-zone beacon.
+	draw_circle(OBJECTIVE_POSITION, 50, Color(0.9, 0.78, 0.35, 0.08))
 	draw_arc(OBJECTIVE_POSITION, 38, 0, TAU, 48, Color("e6c75a"), 3)
 	draw_arc(OBJECTIVE_POSITION, 24, 0, TAU, 48, Color("e6c75a"), 2)
 	draw_line(OBJECTIVE_POSITION + Vector2(-48, 0), OBJECTIVE_POSITION + Vector2(48, 0), Color("e6c75a"), 2)
