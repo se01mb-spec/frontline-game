@@ -9,6 +9,7 @@ signal died
 var health: int
 var invulnerability_timer := 0.0
 var is_dead := false
+var touch_direction := Vector2.ZERO
 
 func _ready() -> void:
 	add_to_group("player")
@@ -20,9 +21,13 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		return
 	invulnerability_timer = maxf(0.0, invulnerability_timer - delta)
-	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var keyboard_direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction := keyboard_direction if keyboard_direction.length() > 0.1 else touch_direction
 	velocity = direction * move_speed
 	move_and_slide()
+
+func set_touch_direction(direction: Vector2) -> void:
+	touch_direction = direction.limit_length(1.0)
 
 func take_damage(amount: int) -> void:
 	if is_dead or invulnerability_timer > 0.0:
