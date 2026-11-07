@@ -51,10 +51,10 @@ func _create_touch_controls() -> void:
 func _create_direction_button(parent: CanvasLayer, caption: String, action_name: String, button_position: Vector2) -> void:
 	var button := Button.new()
 	button.text = caption
+	button.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
 	button.custom_minimum_size = Vector2(78, 78)
 	button.size = Vector2(78, 78)
 	button.position = button_position
-	button.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
 	button.add_theme_font_size_override("font_size", 30)
 	button.modulate = Color(1.0, 1.0, 1.0, 0.82)
 	button.button_down.connect(func(): Input.action_press(action_name))
